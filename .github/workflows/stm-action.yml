@@ -1,0 +1,22 @@
+name: Build STM32 Micro
+on: [push]
+
+# jobs working parellel
+jobs:
+    say-hello:
+        runs-on: ubuntu-latest
+        steps:
+            - name: say hello
+              run: echo "say, hello we going to build stm32 "  
+            # check the repo
+            - name: checkout repository
+              uses: actions/checkout@v4
+              
+    build:
+        needs: [say-hello]     
+        runs-on: ubuntu-latest
+        steps:
+            - name: Build STM32CubeIde project
+              uses: xanderhendriks/action-build-stm32cubeide@v15.0
+              
+              
