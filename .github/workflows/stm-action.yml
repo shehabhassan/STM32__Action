@@ -16,10 +16,24 @@ jobs:
         needs: [say-hello]     
         runs-on: ubuntu-latest
         steps:
+            # check the repo
+            - name: checkout repository
+              uses: actions/checkout@v4
+            # check the repo
+            - name: set up python 
+              uses: actions/setup-python@v4
+              with:
+                python-version: "3.x"
+                
+            #- name: Install PlatformIO
+            #  run: pip install platformio 
+              
             - name: Setup PlatformIO
               uses: n-vr/setup-platformio-action@v1.0.1
+              
             # Build the PlatformIO project
             - name: Build PlatformIO project
+              working-directory: ./test_disc
               run: pio run  
             #- name: Build STM32CubeIde project
             #  uses: xanderhendriks/action-build-stm32cubeide@v15.0
