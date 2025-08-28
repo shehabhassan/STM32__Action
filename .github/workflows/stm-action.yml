@@ -16,7 +16,12 @@ jobs:
         needs: [say-hello]     
         runs-on: ubuntu-latest
         steps:
-            - name: Build STM32CubeIde project
-              uses: xanderhendriks/action-build-stm32cubeide@v15.0
+            - name: Setup PlatformIO
+              uses: n-vr/setup-platformio-action@v1.0.1
+            # Build the PlatformIO project
+            - name: Build PlatformIO project
+              run: pio run  
+            #- name: Build STM32CubeIde project
+            #  uses: xanderhendriks/action-build-stm32cubeide@v15.0
               
               
