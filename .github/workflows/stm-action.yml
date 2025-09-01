@@ -49,8 +49,7 @@ jobs:
             - name: checkout repository
               uses: actions/checkout@v4
               
-    test-test:
-        needs: [say-hello]     
+    test-test:    
         runs-on: ubuntu-latest
         steps:
             - name: test test
