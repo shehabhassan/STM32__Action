@@ -48,3 +48,13 @@ jobs:
             # check the repo
             - name: checkout repository
               uses: actions/checkout@v4
+              
+    test-test:
+        needs: [say-hello]     
+        runs-on: ubuntu-latest
+        steps:
+            - name: test test
+              run: echo "end "  
+            # check the repo
+            - name: checkout repository
+              uses: actions/checkout@v4          
