@@ -39,4 +39,12 @@ jobs:
             #- name: Build STM32CubeIde project
             #  uses: xanderhendriks/action-build-stm32cubeide@v15.0
               
-              
+    test-name:
+        needs: [say-hello]     
+        runs-on: ubuntu-latest
+        steps:
+            - name: say test
+              run: echo "say, this is end of build stm32 "  
+            # check the repo
+            - name: checkout repository
+              uses: actions/checkout@v4
